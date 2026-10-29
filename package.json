@@ -1,0 +1,53 @@
+{
+  "name": "fightclub-dsh",
+  "version": "0.1.3",
+  "description": "DeepSeek Harness bundle for 大肥鱼世界: local MCP tools plus the portable 大肥鱼世界 Skill.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "fightclub-mcp": "0.1.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5",
+    "@deepseek-ai/dsh-mcp-client": "*"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mieboo/fightclub-dsh.git"
+  },
+  "homepage": "https://fatfish.world",
+  "bugs": {
+    "url": "https://github.com/mieboo/bjjlb/issues"
+  },
+  "keywords": [
+    "mcp",
+    "fightclub",
+    "fatfish",
+    "agent"
+  ]
+}
