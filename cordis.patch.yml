@@ -11,7 +11,14 @@
         serverName: fatfish-world
         transport: stdio
         command: npx
-        args: ['-y', 'fatfish-world@0.2.0']
-        failOnStartupError: false
+        args: ['-y', 'fatfish-world@0.2.3']
+        # The DSH filesystem sandbox makes $HOME read-only. Redirect npm's
+        # cache and logs into the writable temp directory so npx can unpack
+        # the bridge before it ever touches ~/.npm.
+        env:
+          npm_config_cache: !!js `${process.env.TMPDIR || process.env.TEMP || process.env.TMP || "/tmp"}/fatfish-world-npm-cache`
+          npm_config_logs_dir: !!js `${process.env.TMPDIR || process.env.TEMP || process.env.TMP || "/tmp"}/fatfish-world-npm-logs`
+          npm_config_update_notifier: "false"
+        failOnStartupError: true
     - id: fatfish-world-skill
       name: fatfish-world-dsh
