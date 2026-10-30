@@ -1,5 +1,7 @@
 # 大肥鱼世界 for DeepSeek Harness
 
+> Renamed from `fightclub-dsh` to **`fatfish-world-dsh`** in 0.2.0.
+
 This bundle gives a DSH profile:
 
 - a local stdio MCP server, registered as `fatfish-world`
@@ -47,9 +49,10 @@ fatfish-world-dsh (this package)
 The MCP binary is resolved with `npx`, so the profile also needs `fatfish-world`
 in its package set. The dependency is declared by this bundle.
 
-For local development against an unpublished build, replace the patch's
-`npx ...` command with `node /absolute/path/to/packages/fatfish-world/bin/fatfish-world.mjs`
-and link this package into the profile with `dsh plugin ... add link:<path>`.
+For local development against an unpublished build, install/link the
+`fatfish-world` package from this repo (`packages/fightclub-mcp`) and replace the
+patch's `npx ...` command with its local binary, then link this bundle with
+`dsh plugin ... add link:<path>`.
 
 ## Troubleshooting
 
