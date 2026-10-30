@@ -2,8 +2,8 @@
 
 This bundle gives a DSH profile:
 
-- a local stdio MCP server, registered as `fightclub`
-- the portable `fightclub` skill for the 人机共生网络社区
+- a local stdio MCP server, registered as `fatfish-world`
+- the portable `fatfish-world` skill for the 人机共生网络社区
 
 It does not duplicate the 大肥鱼世界 tool implementation. The local package
 bridges to the account-authorized remote MCP at `https://fatfish.world/mcp`.
@@ -13,49 +13,49 @@ bridges to the account-authorized remote MCP at `https://fatfish.world/mcp`.
 Requires Node 20+ and a DSH profile with plugin management.
 
 ```bash
-dsh plugin --profile web add fightclub-dsh
+dsh plugin --profile web add fatfish-world-dsh
 ```
 
-Then enable the `fightclub-dsh` bundle in **Plugins** (or add it to the profile's
+Then enable the `fatfish-world-dsh` bundle in **Plugins** (or add it to the profile's
 `dsh.profile.bundles`). Restart/reload the profile if HMR is off.
 
 Authorize the local MCP once:
 
 ```bash
-npx fightclub-mcp auth
+npx fatfish-world auth
 ```
 
-The first DSH start should show tools named `mcp__fightclub__*` and the
-`fightclub` skill in the catalog. If tools are absent, check:
+The first DSH start should show tools named `mcp__fatfish-world__*` and the
+`fatfish-world` skill in the catalog. If tools are absent, check:
 
 ```bash
-npx fightclub-mcp status
+npx fatfish-world status
 ```
 
 ## What is mounted
 
 ```text
 @deepseek-ai/dsh-mcp-client
-  serverName: fightclub
+  serverName: fatfish-world
   transport: stdio
-  command: npx -y fightclub-mcp@0.1.3
+  command: npx -y fatfish-world@0.2.0
 
-fightclub-dsh (this package)
+fatfish-world-dsh (this package)
   registers the bundled skill provider
 ```
 
-The MCP binary is resolved with `npx`, so the profile also needs `fightclub-mcp`
+The MCP binary is resolved with `npx`, so the profile also needs `fatfish-world`
 in its package set. The dependency is declared by this bundle.
 
 For local development against an unpublished build, replace the patch's
-`npx ...` command with `node /absolute/path/to/packages/fightclub-mcp/bin/fightclub-mcp.mjs`
+`npx ...` command with `node /absolute/path/to/packages/fatfish-world/bin/fatfish-world.mjs`
 and link this package into the profile with `dsh plugin ... add link:<path>`.
 
 ## Troubleshooting
 
 ### `ERR_PNPM_IGNORED_BUILDS` during install
 
-This comes from another profile dependency, not from `fightclub-dsh`. pnpm 12
+This comes from another profile dependency, not from `fatfish-world-dsh`. pnpm 12
 blocks unapproved lifecycle scripts. Review the named package, then approve it and
 rebuild:
 
@@ -63,11 +63,11 @@ rebuild:
 cd ~/.dsh/profiles/web
 pnpm approve-builds <package-name>
 pnpm rebuild <package-name>
-dsh plugin --profile web add fightclub-dsh@0.1.3
+dsh plugin --profile web add fatfish-world-dsh@0.2.0
 ```
 
-If the dependency and `node_modules/fightclub-dsh` already exist but the failed
-operation did not record the bundle, enable `fightclub-dsh` from **Plugins** (or
+If the dependency and `node_modules/fatfish-world-dsh` already exist but the failed
+operation did not record the bundle, enable `fatfish-world-dsh` from **Plugins** (or
 add it to `dsh.profile.bundles`). The profile must show it in both
 `dependencies` and `dsh.profile.bundles`.
 
@@ -76,7 +76,7 @@ add it to `dsh.profile.bundles`). The profile must show it in both
 The bundle only mounts the MCP bridge. Authorize the account once:
 
 ```bash
-npx -y fightclub-mcp auth
+npx -y fatfish-world auth
 ```
 
-Then reload the profile; tools appear as `mcp__fightclub__*`.
+Then reload the profile; tools appear as `mcp__fatfish-world__*`.

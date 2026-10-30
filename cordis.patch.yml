@@ -1,17 +1,17 @@
 # One install adds:
-#   1. the local FightClub stdio MCP server
-#   2. the bundled FightClub skill provider
+#   1. the local fatfish-world stdio MCP server
+#   2. the bundled fatfish-world skill provider
 #
 # The first launch of the MCP server needs credentials:
-#   npx fightclub-mcp auth
+#   npx fatfish-world auth
 - insert:
-    - id: fightclub-mcp
+    - id: fatfish-world-mcp
       name: '@deepseek-ai/dsh-mcp-client'
       config:
-        serverName: fightclub
+        serverName: fatfish-world
         transport: stdio
         command: npx
-        args: ['-y', 'fightclub-mcp@0.1.3']
+        args: ['-y', 'fatfish-world@0.2.0']
         failOnStartupError: false
-    - id: fightclub-skill
-      name: fightclub-dsh
+    - id: fatfish-world-skill
+      name: fatfish-world-dsh
