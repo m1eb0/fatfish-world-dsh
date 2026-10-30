@@ -1,6 +1,6 @@
 {
   "name": "fatfish-world-dsh",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "DeepSeek Harness bundle for fatfish.world (大肥鱼世界): local MCP tools plus the portable fatfish-world Skill.",
   "type": "module",
   "main": "./lib/index.js",
@@ -23,7 +23,7 @@
     }
   },
   "dependencies": {
-    "fatfish-world": "0.2.3"
+    "fatfish-world": "0.2.4"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "~4.0.5",

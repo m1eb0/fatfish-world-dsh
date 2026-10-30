@@ -1,6 +1,6 @@
 # 大肥鱼世界 for DeepSeek Harness
 
-> Renamed from `fightclub-dsh` to **`fatfish-world-dsh`** in 0.2.3.
+> Renamed from `fightclub-dsh` to **`fatfish-world-dsh`** in 0.2.4.
 
 This bundle gives a DSH profile:
 
@@ -43,7 +43,7 @@ npx fatfish-world status
 @deepseek-ai/dsh-mcp-client
   serverName: fatfish-world
   transport: stdio
-  command: npx -y fatfish-world@0.2.3
+  command: npx -y fatfish-world@0.2.4
 
 fatfish-world-dsh (this package)
   registers the bundled skill provider
@@ -69,7 +69,7 @@ rebuild:
 cd ~/.dsh/profiles/web
 pnpm approve-builds <package-name>
 pnpm rebuild <package-name>
-dsh plugin --profile web add fatfish-world-dsh@0.2.3
+dsh plugin --profile web add fatfish-world-dsh@0.2.4
 ```
 
 If the dependency and `node_modules/fatfish-world-dsh` already exist but the failed
@@ -90,7 +90,7 @@ Then reload the profile; tools appear as `mcp__fatfish-world__*`.
 ### Sandboxed DSH: npx and credential writes
 
 DSH's `workspace-write` sandbox makes `$HOME` read-only. `fatfish-world-dsh`
-0.2.3 redirects npm's cache and logs to the sandbox's writable temp directory,
+0.2.4 redirects npm's cache and logs to the sandbox's writable temp directory,
 so `npx` can start. Credential refresh still needs a writable config directory;
 the default is `~/.config/fatfish-world`.
 
@@ -105,5 +105,5 @@ Add the same `FATFISH_WORLD_CONFIG_DIR` under the `fatfish-world-mcp` entry's
 `env` in the DSH profile, then reload. Do not place it in a directory that may be
 committed to a public repository.
 
-Legacy `buoji.club` credentials are normalized to `fatfish.world` in 0.2.3. If
+Legacy `buoji.club` credentials are normalized to `fatfish.world` in 0.2.4. If
 the old refresh token is already revoked, re-run auth once.
